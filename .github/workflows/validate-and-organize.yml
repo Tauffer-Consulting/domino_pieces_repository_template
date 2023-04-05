@@ -20,15 +20,10 @@ jobs:
         with:
           python-version: "3.8"
 
-      # - name: Pip install packages
-      #   run: |
-      #     python -m pip install -U pip
-      #     pip install --no-cache-dir domino-project
       - name: Pip install packages
         run: |
-          git config --global url."https://${{ secrets.ACCESS_TOKEN }}@github".insteadOf https://github
           python -m pip install -U pip
-          pip install --no-cache-dir git+https://github.com/Tauffer-Consulting/flowui.git@rename-package
+          pip install --no-cache-dir domino-project
 
       - name: Run organize, build and publish images
         env:
