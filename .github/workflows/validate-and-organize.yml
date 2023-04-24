@@ -26,7 +26,7 @@ jobs:
         run: |
           python -m pip install -U pip
           pip install --no-cache-dir domino-py
-
+      
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
@@ -35,7 +35,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run organize, build and publish images
-        run: domino piece organize --build-images --publish-images --registry-token=${{ secrets.GITHUB_TOKEN }}
+        env:
+          GHCR_USERNAME: ${{ github.actor }}
+        run: domino piece organize --build-images --publish-images --registry-token=${{ secrets.REGISTRY_TOKEN }}
 
       - name: Commit files
         run: |
