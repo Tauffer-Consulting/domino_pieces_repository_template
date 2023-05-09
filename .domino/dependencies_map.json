@@ -9,6 +9,7 @@
         ],
         "secrets": [
             "EXAMPLE_OPERATOR_SECRET_1"
-        ]
+        ],
+        "source_image": "ghcr.io/enter-your-registry-name-here/enter-your-repository-name-here:0.1.0-group0"
     }
 }
