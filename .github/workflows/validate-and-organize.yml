@@ -7,7 +7,6 @@ on:
     paths:
       - 'config.toml'
 
-
 jobs:
   validate-and-organize:
     runs-on: ubuntu-latest
@@ -38,7 +37,7 @@ jobs:
       - name: Run organize, build and publish images
         env:
           GHCR_USERNAME: ${{ github.actor }}
-        run: domino piece organize --build-images --publish-images --registry-token=${{ secrets.REGISTRY_TOKEN }}
+        run: domino piece organize --build-images --publish-images --registry-token=${{ secrets.GITHUB_TOKEN }} --source-url=https://github.com/${{github.repository}}
 
       - name: Commit files
         run: |
