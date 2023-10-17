@@ -1,5 +1,5 @@
 from domino.base_piece import BasePiece
-from .models import InputModel, OutputModel
+from .models import InputModel, OutputModel, SecretsModel
 import os
 
 import numpy as np
@@ -15,15 +15,15 @@ class ExampleSimplePiece(BasePiece):
     - requirements.txt or Dockerfile if needed
     """
     
-    def piece_function(self, input_model: InputModel):
+    def piece_function(self, input_data: InputModel, secrets_data: SecretsModel):
 
         # Input arguments are retrieved from the Input model object
-        distribution_name = input_model.distribution_name
-        distribution_mean = input_model.distribution_mean
-        distribution_sd = input_model.distribution_sd
+        distribution_name = input_data.distribution_name
+        distribution_mean = input_data.distribution_mean
+        distribution_sd = input_data.distribution_sd
 
         # If this Piece needs to use a Secret value, it can retrieve it from ENV
-        piece_secret = os.environ.get("EXAMPLE_OPERATOR_SECRET_1", None)
+        piece_secret = secrets_data.EXAMPLE_OPERATOR_SECRET_1
 
         # Basic logging is done with print()
         print("Starting sampling process...")

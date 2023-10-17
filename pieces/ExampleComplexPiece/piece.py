@@ -1,5 +1,5 @@
 from domino.base_piece import BasePiece
-from .models import InputModel, OutputModel
+from .models import InputModel, OutputModel, SecretsModel
 import os
 
 
@@ -13,13 +13,13 @@ class ExampleComplexPiece(BasePiece):
     - requirements.txt or Dockerfile if needed
     """
     
-    def piece_function(self, input_model: InputModel):
+    def piece_function(self, input_data: InputModel, secrets_data: SecretsModel):
 
         # Input arguments are retrieved from the Input model object
-        arg1 = input_model.arg1
+        arg1 = input_data.arg1
 
         # If this Piece needs to use a Secret value, it can retrieve it from ENV
-        piece_secret = os.environ.get("EXAMPLE_OPERATOR_SECRET_2", None)
+        piece_secret = secrets_data.EXAMPLE_OPERATOR_SECRET_2
 
         # Basic logging is done with print()
         print("Starting piece process...")
