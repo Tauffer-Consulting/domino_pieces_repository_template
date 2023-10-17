@@ -18,11 +18,11 @@ class ExampleComplexPiece(BasePiece):
         # Input arguments are retrieved from the Input model object
         arg1 = input_data.arg1
 
-        # If this Piece needs to use a Secret value, it can retrieve it from ENV
+        # If this Piece needs to use a Secret value, it can retrieve it from Secrets Model object using secrets_data argument
         piece_secret = secrets_data.EXAMPLE_OPERATOR_SECRET_2
 
-        # Basic logging is done with print()
-        print("Starting piece process...")
+        # Basic logging is already implemented in the BasePiece class
+        self.logger.info("Starting piece process...")
 
         # Here we add the Piece function logic
         message = ""

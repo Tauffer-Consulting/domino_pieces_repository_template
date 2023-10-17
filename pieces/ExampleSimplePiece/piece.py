@@ -22,11 +22,11 @@ class ExampleSimplePiece(BasePiece):
         distribution_mean = input_data.distribution_mean
         distribution_sd = input_data.distribution_sd
 
-        # If this Piece needs to use a Secret value, it can retrieve it from ENV
+        # If this Piece needs to use a Secret value, it can retrieve it from Secrets Model object using secrets_data argument
         piece_secret = secrets_data.EXAMPLE_OPERATOR_SECRET_1
 
-        # Basic logging is done with print()
-        print("Starting sampling process...")
+        # Basic logging is already implemented in the BasePiece class
+        self.logger.info("Starting sampling process...")
 
         # Here we add the Piece function logic
         message = ""
@@ -40,7 +40,7 @@ class ExampleSimplePiece(BasePiece):
                 message += "Poisson distributions only accept positive mean values. Applying abs() to the value received."
             sample_result = np.random.poisson(distribution_mean)
 
-        print(f"Sampled from a gaussian distribution with mean={distribution_mean} and sd={distribution_sd}")
+        self.logger.info(f"Sampled from a gaussian distribution with mean={distribution_mean} and sd={distribution_sd}")
         message += "\n"
         message += "Sampling operation was successful!"
 
