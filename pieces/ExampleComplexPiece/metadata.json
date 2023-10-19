@@ -19,6 +19,6 @@
     ],
     "style": {
         "node_label": "Complex Piece",
-        "icon_class_name": "fas fa-database"
+        "icon_class_name": "fa-solid:database"
     }
 }
