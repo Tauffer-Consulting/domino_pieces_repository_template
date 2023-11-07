@@ -1,4 +1,4 @@
-FROM taufferconsulting/domino-airflow-pod:0.0.1
+FROM taufferconsulting/domino-base-piece:latest
 
 # Install specific requirements to run OpenCV
 RUN apt-get update
