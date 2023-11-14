@@ -64,6 +64,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          GIT_STATUS=$(git status -s)
           if [[ ! -z "$GIT_STATUS" ]]; then
             git add .domino/* && git commit -m "auto-organize" -a
             echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_ENV
