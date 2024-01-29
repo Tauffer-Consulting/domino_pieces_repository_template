@@ -18,7 +18,7 @@
         "Example"
     ],
     "style": {
-        "node_label": "Simple Piece",
+        "node_label": "Example Sleep Piece",
         "icon_class_name": "fa-solid:database"
     }
 }

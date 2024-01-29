@@ -18,7 +18,7 @@
         "Example"
     ],
     "style": {
-        "node_label": "Complex Piece",
+        "node_label": "Example Sine Piece",
         "icon_class_name": "fa-solid:database"
     }
 }
