@@ -1,8 +1,8 @@
 {
-    "name": "ExampleComplexPiece",
-    "description": "This is an example of a complex Domino Piece",
+    "name": "ExampleSleepPiece",
+    "description": "This is an example of a simple Domino Piece that sleep for N seconds",
     "dependency": {
-        "dockerfile": "Dockerfile_1"
+        "requirements_file": "requirements_0.txt"
     },
     "container_resources": {
         "requests": {
@@ -18,7 +18,7 @@
         "Example"
     ],
     "style": {
-        "node_label": "Complex Piece",
+        "node_label": "Simple Piece",
         "icon_class_name": "fa-solid:database"
     }
 }

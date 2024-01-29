@@ -1,8 +1,8 @@
 {
-    "name": "ExampleSimplePiece",
-    "description": "This is an example of a simple Domino Piece",
+    "name": "ExampleSineWavePiece",
+    "description": "This is an example of a piece that uses Dockerfile for dependencies.",
     "dependency": {
-        "requirements_file": "requirements_0.txt"
+        "dockerfile": "Dockerfile_1"
     },
     "container_resources": {
         "requests": {
@@ -18,7 +18,7 @@
         "Example"
     ],
     "style": {
-        "node_label": "Simple Piece",
+        "node_label": "Complex Piece",
         "icon_class_name": "fa-solid:database"
     }
 }
