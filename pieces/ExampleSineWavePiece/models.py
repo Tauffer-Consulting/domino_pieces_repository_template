@@ -26,6 +26,3 @@ class OutputModel(BaseModel):
     message: str = Field(
         description="Sleep piece executed"
     )
-
-class SecretsModel(BaseModel):
-    ...
