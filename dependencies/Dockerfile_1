@@ -1,5 +1,4 @@
-FROM taufferconsulting/domino-base-piece:latest
-
+FROM ghcr.io/tauffer-consulting/domino-base-piece:latest
 # Install specific requirements to run OpenCV
 RUN apt-get update
 RUN apt-get install ffmpeg libsm6 libxext6  -y
