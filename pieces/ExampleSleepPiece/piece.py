@@ -9,7 +9,6 @@ class ExampleSleepPiece(BasePiece):
 
         self.logger.info(f"Sleeping for {input_data.sleep_time} seconds")
         sleep(input_data.sleep_time)
-
         message = f"Sleep piece executed successfully for {input_data.sleep_time} seconds"
         self.logger.info(message)
 
