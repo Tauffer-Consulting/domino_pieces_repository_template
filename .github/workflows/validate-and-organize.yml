@@ -39,7 +39,7 @@ jobs:
 
       - name: Run organize and build images
         run: |
-          domino piece organize --build-images --source-url=https://github.com/${{github.repository}}
+          domino piece-repository organize --build-images --source-url=https://github.com/${{github.repository}}
 
       - name: Install Tests Dependencies
         run: pip install -r requirements-tests.txt

@@ -1,6 +1,81 @@
 {
-    "ExampleSimplePiece": {
-        "name": "ExampleSimplePiece",
+    "ExampleSineWavePiece": {
+        "name": "ExampleSineWavePiece",
+        "dependency": {
+            "dockerfile": "Dockerfile_1",
+            "requirements_file": null
+        },
+        "tags": [
+            "Example"
+        ],
+        "style": {
+            "node_label": "Example Sine Piece",
+            "node_type": "default",
+            "node_style": {
+                "backgroundColor": "#ebebeb"
+            },
+            "useIcon": true,
+            "icon_class_name": "fa-solid:database",
+            "iconStyle": {
+                "cursor": "pointer"
+            }
+        },
+        "description": "This is an example of a piece that uses Dockerfile for dependencies.",
+        "container_resources": {
+            "requests": {
+                "cpu": 100,
+                "memory": 128
+            },
+            "limits": {
+                "cpu": 500,
+                "memory": 512
+            }
+        },
+        "input_schema": {
+            "description": "Sleep Piece Input Model",
+            "properties": {
+                "frequency": {
+                    "default": 5,
+                    "description": "Frequency of the sine wave in Hz",
+                    "title": "Frequency",
+                    "type": "integer"
+                },
+                "duration": {
+                    "default": 1,
+                    "description": "Duration of the sine wave signal in seconds",
+                    "title": "Duration",
+                    "type": "integer"
+                },
+                "sample_rate": {
+                    "default": 1000,
+                    "description": "Sample rate of the sine wave signal.",
+                    "title": "Sample Rate",
+                    "type": "integer"
+                }
+            },
+            "title": "InputModel",
+            "type": "object"
+        },
+        "output_schema": {
+            "description": "Sleep Piece Output Model",
+            "properties": {
+                "message": {
+                    "description": "Sleep piece executed",
+                    "title": "Message",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "message"
+            ],
+            "title": "OutputModel",
+            "type": "object"
+        },
+        "secrets_schema": null,
+        "source_url": "https://github.com/Tauffer-Consulting/domino_pieces_repository_template/tree/main/pieces/ExampleSineWavePiece"
+    },
+    "ExampleSleepPiece": {
+        "name": "ExampleSleepPiece",
         "dependency": {
             "dockerfile": null,
             "requirements_file": "requirements_0.txt"
@@ -9,102 +84,57 @@
             "Example"
         ],
         "style": {
-            "node_label": "Simple Piece",
+            "node_label": "Example Sleep Piece",
             "node_type": "default",
             "node_style": {
                 "backgroundColor": "#ebebeb"
             },
             "useIcon": true,
-            "icon_class_name": "fas fa-database",
+            "icon_class_name": "fa-solid:database",
             "iconStyle": {
                 "cursor": "pointer"
             }
         },
-        "description": "This is an example of a simple Domino Piece",
+        "description": "This is an example of a simple Domino Piece that sleep for N seconds",
         "container_resources": {
             "requests": {
-                "cpu": "100m",
-                "memory": "128Mi"
+                "cpu": 100,
+                "memory": 128
             },
             "limits": {
-                "cpu": "500m",
-                "memory": "512Mi"
+                "cpu": 500,
+                "memory": 512
             }
         },
         "input_schema": {
-            "title": "InputModel",
-            "type": "object",
+            "description": "Sleep Piece Input Model",
             "properties": {
-                "distribution_name": {
-                    "description": "Name of the distribution to sample from",
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/DistributionType"
-                        }
-                    ]
-                },
-                "distribution_mean": {
-                    "title": "Distribution Mean",
-                    "description": "Distribution mean",
-                    "type": "number"
-                },
-                "distribution_sd": {
-                    "title": "Distribution Sd",
-                    "description": "Distribution standard deviation",
-                    "default": 1.0,
-                    "exclusiveMinimum": 0.0,
+                "sleep_time": {
+                    "default": 1,
+                    "description": "Number of seconds to sleep",
+                    "title": "Sleep Time",
                     "type": "number"
                 }
             },
-            "required": [
-                "distribution_name",
-                "distribution_mean"
-            ],
-            "definitions": {
-                "DistributionType": {
-                    "title": "DistributionType",
-                    "description": "An enumeration.",
-                    "enum": [
-                        "gaussian",
-                        "poisson"
-                    ],
-                    "type": "string"
-                }
-            }
+            "title": "InputModel",
+            "type": "object"
         },
         "output_schema": {
-            "title": "OutputModel",
-            "type": "object",
+            "description": "Sleep Piece Output Model",
             "properties": {
                 "message": {
+                    "description": "Sleep piece executed",
                     "title": "Message",
-                    "description": "Output message to log",
-                    "type": "string"
-                },
-                "sample_result": {
-                    "title": "Sample Result",
-                    "description": "The result of this Piece's processing",
                     "type": "string"
                 }
             },
             "required": [
-                "message",
-                "sample_result"
-            ]
+                "message"
+            ],
+            "title": "OutputModel",
+            "type": "object"
         },
-        "secrets_schema": {
-            "title": "SecretsModel",
-            "type": "object",
-            "properties": {
-                "EXAMPLE_OPERATOR_SECRET_1": {
-                    "title": "Example Operator Secret 1",
-                    "description": "A secret necessary to run this Piece",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "EXAMPLE_OPERATOR_SECRET_1"
-            ]
-        }
+        "secrets_schema": null,
+        "source_url": "https://github.com/Tauffer-Consulting/domino_pieces_repository_template/tree/main/pieces/ExampleSleepPiece"
     }
 }
